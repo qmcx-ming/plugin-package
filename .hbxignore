@@ -1,0 +1,12 @@
+# Git
+.git/
+.gitignore
+
+# HBuilderX Ignore
+.hbxignore
+
+# Node Modules
+node_modules/
+
+# HBuilderX Package
+*.zip

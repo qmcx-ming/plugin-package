@@ -1,0 +1,45 @@
+{
+	"id": "plugin-package",
+	"name": "plugin-package",
+	"description": "HBuilderX的IDE插件打包扩展",
+	"displayName": "插件打包",
+	"version": "1.0.0",
+	"publisher": "青明尘下",
+	"engines": {
+		"HBuilderX": "^2.7.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"main": "./extension",
+	"activationEvents": [
+		"onCommand:extension.package"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.package",
+				"title": "IDE插件打包"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "extension.package",
+					"group": "z_commands",
+					"when": "explorerResourceIsWorkspaceFolder"
+				},
+				{
+					"group": "z_commands"
+				}
+			]
+		}
+	},
+	"extensionDependencies": [
+		"plugin-manager"
+	],
+	"dependencies": {
+		"adm-zip": "^0.5.16",
+		"minimatch": "^10.0.1"
+	}
+}
