@@ -24,6 +24,8 @@ node_modules/
 *.zip
 ```
 
+文件名为：`.hbxignore`
+
 ## 说明
 
 打包后的zip文件名为项目根目录下的package.json文件中的id字段
