@@ -5,6 +5,7 @@ const AdmZip = require('adm-zip');
 const { minimatch } = require('minimatch');
 
 async function init(e) {
+	hx.window.setStatusBarMessage('正在打包中，请不要重复点击...');
 	const filePath = e.fsPath;
 	const zip = new AdmZip();
 	let ignoreList;
@@ -32,6 +33,28 @@ async function init(e) {
 
 	zip.writeZip(path.join(filePath, data + '.zip'));
 	hx.window.showInformationMessage('打包成功');
+	hx.window.clearStatusBarMessage();
+}
+
+function createIgnoreFile(filePath) {
+	const fPath = path.join(filePath, '.hbxignore');
+	if (fs.existsSync(fPath)) {
+		hx.window.showInformationMessage('已经存在.hbxignore文件');
+		return;
+	}
+	fs.writeFileSync(fPath, `# Git
+.git/
+.gitignore
+
+# HBuilderX Ignore
+.hbxignore
+
+# Node Modules
+node_modules/
+
+# HBuilderX Package
+*.zip`);
+	hx.window.showInformationMessage('创建成功');
 }
 
 /**
@@ -57,5 +80,6 @@ function startsWithAny(str, prefixes) {
 }
 
 module.exports = {
-	init
+	init,
+	createIgnoreFile
 }

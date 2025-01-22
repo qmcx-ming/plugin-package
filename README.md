@@ -1,7 +1,7 @@
 ﻿
 # 插件打包
 
-> 一个HBuilderX的IDE插件打包扩展
+> 这是一个基于HBuilderX的IDE插件打包扩展
 
 ## 使用方式
 

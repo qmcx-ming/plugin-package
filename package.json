@@ -3,7 +3,7 @@
 	"name": "plugin-package",
 	"description": "HBuilderX的IDE插件打包扩展",
 	"displayName": "插件打包",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "青明尘下",
 	"engines": {
 		"HBuilderX": "^2.7.0"
@@ -13,19 +13,28 @@
 	],
 	"main": "./extension",
 	"activationEvents": [
-		"onCommand:extension.package"
+		"onCommand:qmcx.package"
 	],
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.package",
+				"command": "qmcx.package",
 				"title": "IDE插件打包"
+			},
+			{
+				"command": "qmcx.createIgnoreFile",
+				"title": "创建 .hbxignore文件"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "extension.package",
+					"command": "qmcx.package",
+					"group": "z_commands",
+					"when": "explorerResourceIsWorkspaceFolder"
+				},
+				{
+					"command": "qmcx.createIgnoreFile",
 					"group": "z_commands",
 					"when": "explorerResourceIsWorkspaceFolder"
 				},
